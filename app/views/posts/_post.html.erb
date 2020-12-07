@@ -20,6 +20,11 @@
   </div>
   <div class="card-footer text-muted">
     <%=l post.created_at, format: :long %>
+    <ul class="list-inline mb-0">
+      <li class="list-inline-item">
+        <%= like_tag(post, @current_user) %>
+      </li>
+    </ul>
   </div>
 
 </div>

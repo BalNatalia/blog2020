@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   has_many :posts, -> { ordering }, dependent: :destroy
   has_many :comments, -> { ordering }, dependent: :destroy
+  has_many :likes, -> { ordering }, dependent: :destroy
 
   scope :ordering, -> { order(:name) }
 

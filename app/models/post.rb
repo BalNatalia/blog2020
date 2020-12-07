@@ -1,8 +1,10 @@
 class Post < ApplicationRecord
   belongs_to :user
   has_many :comments, -> { ordering }, dependent: :destroy
+  has_many :likes, -> { ordering }, dependent: :destroy
 
   scope :ordering, -> { order(created_at: :desc) }
+  scope :full, -> { includes(:user, :likes) }
 
   validates :title, presence: true, length: {in: 2..255}
   validates :body, presence: true
